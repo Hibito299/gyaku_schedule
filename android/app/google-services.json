@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "247990503891",
+    "project_id": "gyaku-schedule",
+    "storage_bucket": "gyaku-schedule.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247990503891:android:f5e527957ea1215c8b4726",
+        "android_client_info": {
+          "package_name": "com.example.gyaku_schedule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247990503891-p99og1625essu9cq37l4dqunauq3maat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT455_m_4CiqQa5PLjmQwNV_VCn2e6of0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247990503891-p99og1625essu9cq37l4dqunauq3maat.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
