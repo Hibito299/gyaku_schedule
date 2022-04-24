@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -10,38 +12,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: const HomePage(),
       routes: <String, WidgetBuilder>{
-        '/login': (BuildContext context) => const LoginPage(),
         '/home': (BuildContext context) => const HomePage(),
         '/check': (BuildContext context) => const CheckTask(),
         '/add': (BuildContext context) => const AddTask(),
         '/manage': (BuildContext context) => const ManagePage(),
         '/user': (BuildContext context) => const UserPage(),
       },
-    );
-  }
-}
-
-//ログイン画面
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            const Text('逆算スケジュール'),
-            ElevatedButton(
-                onPressed: () async {
-                  await Navigator.of(context).pushReplacementNamed('/home');
-                },
-                child: const Text('ログイン'))
-          ],
-        ),
-      ),
     );
   }
 }
@@ -110,18 +88,47 @@ class CheckTask extends StatelessWidget {
   }
 }
 
-//タスク作成画面
-class AddTask extends StatelessWidget {
+class AddTask extends StatefulWidget {
   const AddTask({Key? key}) : super(key: key);
 
   @override
+  _AddTaskState createState() => _AddTaskState();
+}
+
+//タスク作成画面
+class _AddTaskState extends State<AddTask> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('タスク作成'),
-      ),
-      body: Center(),
-    );
+        appBar: AppBar(
+          title: const Text('タスク作成'),
+        ),
+        body: Stack(children: <Widget>[
+          TextField(
+            style: const TextStyle(
+              fontSize: 30,
+            ),
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.all(50),
+              hintText: '大目標を決めよう',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: ElevatedButton(
+                child: const Text('目標を設定する'),
+                onPressed: () {},
+                style:
+                    ElevatedButton.styleFrom(minimumSize: const Size(250, 50)),
+              ),
+            ),
+          )
+        ]));
   }
 }
 
@@ -136,13 +143,6 @@ class ManagePage extends StatelessWidget {
         title: const Text('タスク一覧'),
       ),
       body: Stack(children: [
-        ListView.builder(itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-              title: Text('$index'),
-            ),
-          );
-        }),
         Align(
           alignment: Alignment.bottomCenter,
           child: ElevatedButton(
