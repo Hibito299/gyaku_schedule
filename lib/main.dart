@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gyaku_schedule/TaskPage/checktask.dart';
+import 'package:gyaku_schedule/TaskPage/addtask.dart';
+import 'package:gyaku_schedule/UserPage/user.dart';
 
 Future<void> main() async {
   runApp(MyApp());
@@ -73,65 +76,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-//タスク確認画面
-class CheckTask extends StatelessWidget {
-  const CheckTask({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ホーム'),
-      ),
-      body: Center(),
-    );
-  }
-}
-
-class AddTask extends StatefulWidget {
-  const AddTask({Key? key}) : super(key: key);
-
-  @override
-  _AddTaskState createState() => _AddTaskState();
-}
-
-//タスク作成画面
-class _AddTaskState extends State<AddTask> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('タスク作成'),
-        ),
-        body: Stack(children: <Widget>[
-          TextField(
-            style: const TextStyle(
-              fontSize: 30,
-            ),
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(50),
-              hintText: '大目標を決めよう',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: ElevatedButton(
-                child: const Text('目標を設定する'),
-                onPressed: () {},
-                style:
-                    ElevatedButton.styleFrom(minimumSize: const Size(250, 50)),
-              ),
-            ),
-          )
-        ]));
-  }
-}
-
 //タスク管理画面
 class ManagePage extends StatelessWidget {
   const ManagePage({Key? key}) : super(key: key);
@@ -152,21 +96,6 @@ class ManagePage extends StatelessWidget {
               child: const Text('スケジュール追加')),
         )
       ]),
-    );
-  }
-}
-
-//ユーザー画面
-class UserPage extends StatelessWidget {
-  const UserPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ユーザー画面'),
-      ),
-      body: Container(),
     );
   }
 }
